@@ -1,8 +1,8 @@
-# 【Cloudflare Workers】REST API を作成しながら Drizzle ORM の使い方を学ぶ
+# 【Cloudflare Workers】Hono ＋ Cloudflare D1にDrizzle ORMを追加して30分でREST APIを作成
 
 ## YouTube
 
-[!["【Cloudflare Workers】REST APIを作成しながらDrizzle ORMの使い方を学ぶ"](https://i.ytimg.com/vi/kCwHEXqoPsE/maxresdefault.jpg)](https://youtu.be/kCwHEXqoPsE)
+[!["【Cloudflare Workers】Hono ＋ Cloudflare D1にDrizzle ORMを追加して30分でREST APIを作成"](https://i.ytimg.com/vi/kCwHEXqoPsE/maxresdefault.jpg)](https://youtu.be/kCwHEXqoPsE)
 
 ## 技術選定
 
