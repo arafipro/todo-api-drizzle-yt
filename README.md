@@ -67,6 +67,64 @@ npm run migrate:local
 npm run migrate:remote
 ```
 
+
+## APIに接続を許可するURLを指定(CORS)
+
+`src/index.ts`のcorsのoriginに接続を許可するURLを指定する  
+配列で複数指定することも可能  
+接続を許可するURLを指定する場合は最後のスラッシュ（/）は不要  
+例）`http://localhost:8000（/は不要）`    
+
+### /todos
+
+idを指定しないURLの場合
+GETとPOSTでしか使わない
+
+```ts:src/index.ts
+app.use(
+  "/todos",
+  cors({
+    origin: ["{許可するURL1}", "{許可するURL2}"],
+    allowHeaders: [
+    "X-Custom-Header",
+      "Upgrade-Insecure-Requests",
+      "Content-Type",
+    ],
+    allowMethods: ["GET", "POST", "OPTIONS"],
+		...
+  })
+);
+```
+
+### /todos/*
+
+idを指定したURLの場合
+GETとPUTとDELETEでしか使わない
+
+```ts:src/index.ts
+app.use(
+  "/todos/*",
+  cors({
+    origin: ["{許可するURL1}", "{許可するURL2}"],
+    allowHeaders: [
+      "X-Custom-Header",
+      "Upgrade-Insecure-Requests",
+      "Content-Type",
+    ],
+    allowMethods: ["GET", "PUT", "DELETE", "OPTIONS"],
+		...
+  })
+);
+```
+
+### 参考資料
+
+Honoドキュメント：
+https://hono.dev/middleware/builtin/cors
+
+参考サイト：
+https://zenn.dev/camomile_cafe/articles/b11a3f9b8f2f1d
+      
 ## テーブル
 
 ### テーブル名 todos

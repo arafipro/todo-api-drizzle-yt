@@ -2,8 +2,41 @@ import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/d1";
 import { Hono } from "hono";
 import { todos } from "../db/schema";
+import { cors } from "hono/cors";
 
 const app = new Hono<{ Bindings: Bindings }>().basePath("/api");
+
+app.use(
+  "/todos",
+  cors({
+    origin: ["{許可するURL1}", "{許可するURL2}"],
+    allowHeaders: [
+      "X-Custom-Header",
+      "Upgrade-Insecure-Requests",
+      "Content-Type",
+    ],
+    allowMethods: ["GET", "POST", "OPTIONS"],
+    exposeHeaders: ["Content-Length", "X-Kuma-Revision"],
+    maxAge: 600,
+    credentials: true,
+  })
+);
+
+app.use(
+  "/todos/*",
+  cors({
+    origin: ["{許可するURL1}", "{許可するURL2}"],
+    allowHeaders: [
+      "X-Custom-Header",
+      "Upgrade-Insecure-Requests",
+      "Content-Type",
+    ],
+    allowMethods: ["GET", "PUT", "DELETE", "OPTIONS"],
+    exposeHeaders: ["Content-Length", "X-Kuma-Revision"],
+    maxAge: 600,
+    credentials: true,
+  })
+);
 
 // 1件データ取得
 app.get("/todos/:id", async (c) => {
