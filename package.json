@@ -8,7 +8,10 @@
     "start": "wrangler dev",
     "test": "vitest",
     "generate": "drizzle-kit generate:sqlite",
-    "migrate": "wrangler d1 migrations apply todo-api-drizzle --local"
+    "migrate:local": "wrangler d1 migrations apply todo-api-drizzle --local",
+    "migrate:remote": "wrangler d1 migrations apply todo-api-drizzle --remote",
+    "seed:local": "npx wrangler d1 execute todo-api-drizzle --local --file=./db/dummy-data.sql",
+    "seed:remote": "npx wrangler d1 execute todo-api-drizzle --remote --file=./db/dummy-data.sql"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.1.0",

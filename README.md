@@ -37,15 +37,39 @@ database_id = "<unique-ID-for-your-database>"
 
 `<unique-ID-for-your-database>`はデータベースを作成したときに出力されるID
 
-### データベースにテーブルを作成
+### テーブルのスキーマを作成
 
 ```bash
-npx wrangler d1 execute todo-api-drizzle --remote --file=./db/schema.sql
+npm run generate
 ```
 
-### テーブル
+### ローカルデータベースにテーブルを作成
 
-#### テーブル名 todos
+```bash
+npm run migrate:local
+```
+
+### リモートデータベースにテーブルを作成
+
+```bash
+npm run migrate:remote
+```
+
+### ローカルデータベースのテーブルにダミーデータを登録
+
+```bash
+npm run migrate:local
+```
+
+### リモートデータベースのテーブルにダミーデータを登録
+
+```bash
+npm run migrate:remote
+```
+
+## テーブル
+
+### テーブル名 todos
 
 | No. | カラム名 | データ型 | 主キー | 初期値 | 備考         |
 | --- | -------- | -------- | :----: | ------ | ------------ |

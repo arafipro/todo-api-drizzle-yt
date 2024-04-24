@@ -6,5 +6,5 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "todo-api-drizzle"
-database_id = "35a11f25-6c37-44e1-a809-2370521da9e5"
+database_id = "<unique-ID-for-your-database>"
 migrations_dir = "drizzle/migrations"
